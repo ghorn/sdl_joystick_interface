@@ -67,7 +67,7 @@ init_joystick()
 }
 
 
-static void clean_up()
+static void clean_up(void)
 {
   //Close the joystick
   SDL_JoystickClose( stick );
@@ -77,7 +77,7 @@ static void clean_up()
 }
 
 
-static void handle_logitech_event()
+static void handle_logitech_event(void)
 {
   //If an axis was changed
   if( event.type == SDL_JOYAXISMOTION )
