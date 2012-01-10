@@ -37,7 +37,6 @@ Joystick::Joystick(const int _idx){
 }
 
 Joystick::~Joystick(){
-    cout << "------------------------Deleting joystick -----------------\n";
     if (axes != NULL)
         delete axes;
     if (buttons != NULL)
