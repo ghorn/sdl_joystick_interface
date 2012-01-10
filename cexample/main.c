@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 
+#include "../csrc/sdl_joystick_interface.h"
 #include "run_realtime.h"
-#include "sdl_joystick_interface.h"
 
 int
 main()

@@ -8,7 +8,6 @@
 #include <SDL/SDL_joystick.h>
 
 #include "sdl_joystick_interface.h"
-#include "run_realtime.h"
 
 #define BOUND(x, min, max) {                    \
     if ((x) > (max)) (x) = (max);               \

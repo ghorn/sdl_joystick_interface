@@ -1,13 +1,14 @@
-PROJ = sdl_joystick_interface_example
+C_PROJ = c_example
 
 Q = @
 CC = gcc
 
-C_SRC = run_realtime.c \
-	sdl_joystick_interface.c \
-	main.c
+C_SRC = \
+	main.c \
+	run_realtime.c \
+	../csrc/sdl_joystick_interface.c
 
-OBJ = $(C_SRC:.c=.o) 
+C_OBJ = $(C_SRC:.c=.o) 
 
 WARNINGFLAGS = -Wall -Wextra -Werror
 DEBUGFLAGS = -g
@@ -20,14 +21,14 @@ LDFLAGS = -lSDL
 
 .PHONY: clean
 
-$(PROJ): $(OBJ)
+$(C_PROJ): $(C_OBJ)
 	@echo LD $@
-	$(Q)$(CC) $(OBJ) $(LDFLAGS) -o $@
+	$(Q)$(CC) $(C_OBJ) $(LDFLAGS) -o $@
 
 %.o : %.c
 	@echo CC $@
 	$(Q)$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(PROJ)
-	rm -f $(OBJ)
+	rm -f $(C_PROJ)
+	rm -f $(C_OBJ)
