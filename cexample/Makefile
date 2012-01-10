@@ -5,7 +5,6 @@ CC = gcc
 
 C_SRC = \
 	main.c \
-	run_realtime.c \
 	../csrc/sdl_joystick_interface.c
 
 C_OBJ = $(C_SRC:.c=.o) 
