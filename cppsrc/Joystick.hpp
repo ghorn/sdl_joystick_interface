@@ -14,6 +14,12 @@ public:
     ~Joystick();
     void setAxis(int axisNo, int val);
     void setButton(int buttonNo, int val);
+    double getAxis(int axisNo);
+    int getButton(int buttonNo);
+    int getNumAxes();
+    int getNumButtons();
+    string getName();
+
     void grabStates();
 
 private:

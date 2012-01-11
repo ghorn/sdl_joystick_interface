@@ -85,6 +85,35 @@ void Joystick::setButton(int buttonNo, int val){
     buttons[buttonNo] = val;
 }
 
+double Joystick::getAxis(int axisNo){
+    if (axisNo > numAxes){
+        cerr << "Joystick::getAxis() called on axisNo: " << axisNo << " but only has " << numAxes << " axes\n";
+        return -1;
+    }
+    return axes[axisNo];
+}
+
+int Joystick::getButton(int buttonNo){
+    if (buttonNo > numButtons){
+        cerr << "Joystick::getButton() called on buttonNo: " << buttonNo << " but only has " << numButtons << " buttons\n";
+        return -1;
+    }
+    return buttons[buttonNo];
+}
+
+
+int Joystick::getNumAxes(){
+    return numAxes;
+}
+
+int Joystick::getNumButtons(){
+    return numButtons;
+}
+
+string Joystick::getName(){
+    return name;
+}
+
 double Joystick::jsIntToDouble(int in){
     if (in < 0)
         return ((double)in)/(32768.0);
