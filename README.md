@@ -55,8 +55,8 @@ You don't need to call joystick() first, you can call joystick(0) immediately.
 
 SDL and individual joysticks are opened and closed automatically by the wrapper. The SDL and joystick wrapper memory can be cleared with `clear all` or `clear mex`.
 
-### BUG:
-For some reason the first struct gotten is bad and random, you should manually discard it or suffer the consequences.
+## BUG:
+For some reason (only?) the first struct gotten is bad and random, you should manually discard it or suffer the consequences.
 
     >> clear all
     Closing "Logitech Dual Action"
