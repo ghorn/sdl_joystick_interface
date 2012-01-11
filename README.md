@@ -74,13 +74,15 @@ For some reason (only?) the first struct gotten is bad and random, you should ma
         1.0737
         0.3022
         0.5369
-        0.5396
-        0.0000
-        0.0000
-             0
-        1.9165
-        0.0000
-             0
-        0.0002
+
+    >> js = joystick(0);
+    >> js.buttons
+    
+    ans =
+    
+         0
+         0
+         0
+         0
 
 I've tried to repeatedly grab values internally in a loop, but this does not force it to cycle. I suspect the bug is related to SDL events not working properly without having SDLMain.
