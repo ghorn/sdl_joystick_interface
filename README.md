@@ -1,6 +1,22 @@
 # SDL Joystick Wrappers
+C/C++/mex wrappers for SDL Joystick. C wrappers currently broken
 
-## Build the cpp example
+## Dependencies
+SDL development library
+
+### Ubuntu
+Available through apt-get
+
+`apt-get install libsdl1.2-dev`
+
+### OSX
+Available through macports (which you can get at http://www.macports.org/install.php)
+
+then
+
+`port install libsdl-devel`
+
+## To build the cpp example
 
     >> cd cppexample
     >> make
@@ -12,8 +28,8 @@
     Joystick 0, name: Logitech Dual Action, buttons: [0, 0, 0, 0], axes: [0.00390637, -0.0117798, 0.00390637, 0.00390637]
     ...
 
-## Build the mex function
-from Matlab
+## To build the mex function
+from MATLAB
 
     >> cd mex
     >> build
