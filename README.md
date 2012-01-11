@@ -26,7 +26,7 @@ To see all available joysticks:
     Connected joysticks:
     0: Logitech Dual Action
 
-To get one of those joysticks, call joystick(joystick_index)
+To get one of those joysticks, call "joystick(joystick_index)"
 
     >> joystick(0)
     ans = 
@@ -39,3 +39,32 @@ You don't need to call joystick() first, you can call joystick(0) immediately.
 
 SDL and individual joysticks are opened and closed automatically by the wrapper. The SDL and joystick wrapper memory can be cleared with `clear all` or `clear mex`.
 
+### BUG:
+For some reason the first struct gotten is bad and random, you should manually discard it or suffer the consequences.
+
+    >> clear all
+    Closing "Logitech Dual Action"
+    quitting SDL Joystick subsystem
+    >> js = joystick(0);
+    initializing SDL Joystick subsystem
+    Opening joystick 0... found Logitech Dual Action
+    >> js.buttons
+    
+    ans =
+    
+       1.0e+09 *
+    
+             0
+        1.0737
+        0.3022
+        0.5369
+        0.5396
+        0.0000
+        0.0000
+             0
+        1.9165
+        0.0000
+             0
+        0.0002
+
+I've tried to repeatedly grab values internally in a loop, but this does not force it to cycle. I suspect the bug is related to SDL events not working properly without having SDLMain.
