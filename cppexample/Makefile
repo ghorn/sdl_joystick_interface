@@ -2,6 +2,7 @@ PROJ = cpp_example
 
 Q = @
 CXX = g++
+UNAME := $(shell uname)
 
 CPP_SRC = \
 	main.cpp \
@@ -17,7 +18,11 @@ INCLUDES =
 
 CPPFLAGS = $(WARNINGFLAGS) $(DEBUGFLAGS) $(INCLUDES) $(OPTFLAGS) #-std=gnu99 
 
-LDFLAGS = -lSDL
+ifeq ($(UNAME),Darwin)
+	LDFLAGS = -L/opt/local/lib -lSDL
+else
+	LDFLAGS = -lSDL
+endif
 
 .PHONY: clean
 
