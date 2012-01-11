@@ -55,7 +55,7 @@ void Joysticks::handleEvents(){
 void Joysticks::grabStates(){
     map<int,Joystick*>::iterator jsit;
 
-//    SDL_JoystickUpdate();
+    SDL_JoystickUpdate();
     for (jsit=jsMap.begin(); jsit!=jsMap.end(); ++jsit)
         jsit->second->grabStates();
 }
@@ -100,4 +100,6 @@ Joysticks::~Joysticks(){
         delete ii->second;
         jsMap.erase(ii->first);
     }
+    cout << "quitting SDL Joystick subsystem\n";
+    SDL_QuitSubSystem(SDL_INIT_JOYSTICK);
 }
