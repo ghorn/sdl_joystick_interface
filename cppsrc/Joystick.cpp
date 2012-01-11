@@ -37,6 +37,7 @@ Joystick::Joystick(const int _idx){
 }
 
 Joystick::~Joystick(){
+    cout << "Closing \"" << name << "\"" << endl;
     if (axes != NULL)
         delete axes;
     if (buttons != NULL)
@@ -71,7 +72,7 @@ std::ostream & operator << (std::ostream & stream, const Joystick & js){
 
 void Joystick::setAxis(int axisNo, int val){
     if (axisNo > numAxes){
-        cerr << "Joystick::setAxis() called on axisNo: " << axisNo << " but only has " << numAxes << "axes\n";
+        cerr << "Joystick::setAxis() called on axisNo: " << axisNo << " but only has " << numAxes << " axes\n";
         return;
     }
     axes[axisNo] = jsIntToDouble(val);
@@ -79,7 +80,7 @@ void Joystick::setAxis(int axisNo, int val){
 
 void Joystick::setButton(int buttonNo, int val){
     if (buttonNo > numButtons){
-        cerr << "Joystick::setButton() called on buttonNo: " << buttonNo << " but only has " << numButtons << "Buttons\n";
+        cerr << "Joystick::setButton() called on buttonNo: " << buttonNo << " but only has " << numButtons << " buttons\n";
         return;
     }
     buttons[buttonNo] = val;

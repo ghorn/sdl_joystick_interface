@@ -24,10 +24,8 @@ void Joysticks::handleEvents(){
     map<int,Joystick*>::iterator jsit;
 
     SDL_JoystickUpdate();
-    cout << "trying to update\n";
     while (SDL_PollEvent( &event )){
         cout << "got event!\n";
-
         if (event.type == SDL_QUIT ){
             cout << "sdl quit detected, exiting" << endl;
             exit(0);
