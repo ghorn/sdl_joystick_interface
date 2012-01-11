@@ -2,22 +2,32 @@
 
 ## Build the cpp example
 
+`
 >> cd cppexample
->> make
->> ./cpp_example 
-initializing SDL Joystick subsystem
-found 1 joystick(s)
-Opening joystick 0... found Logitech Dual Action
-Joystick 0, name: Logitech Dual Action, buttons: [0, 0, 0, 0], axes: [0.00390637, -0.0117798, 0.00390637, 0.00390637]
-Joystick 0, name: Logitech Dual Action, buttons: [0, 0, 0, 0], axes: [0.00390637, -0.0117798, 0.00390637, 0.00390637]
-...
 
+>> make
+
+>> ./cpp_example 
+
+initializing SDL Joystick subsystem
+
+found 1 joystick(s)
+
+Opening joystick 0... found Logitech Dual Action
+
+Joystick 0, name: Logitech Dual Action, buttons: [0, 0, 0, 0], axes: [0.00390637, -0.0117798, 0.00390637, 0.00390637]
+
+Joystick 0, name: Logitech Dual Action, buttons: [0, 0, 0, 0], axes: [0.00390637, -0.0117798, 0.00390637, 0.00390637]
+
+...
+`
 
 ## Build the mex function
 from Matlab
 
 `
 >> cd mex
+
 >> build
 `
 
@@ -27,11 +37,14 @@ To see all available joysticks:
 
 `
 >> joystick()
+
 Connected joysticks:
+
 0: Logitech Dual Action
 `
 
 To get one of those joysticks, call joystick(joystick_index)
+
 `
 >> joystick(0)
 
