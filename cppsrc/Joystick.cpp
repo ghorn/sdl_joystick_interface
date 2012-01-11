@@ -123,7 +123,7 @@ double Joystick::jsIntToDouble(int in){
 
 void Joystick::grabStates(){
     for (int k = 0; k<numButtons; k++)
-        buttons[k] = SDL_JoystickGetButton(sdlJs, k);
+        buttons[k] = Joystick::jsIntToDouble(SDL_JoystickGetButton(sdlJs, k));
     for (int k = 0; k<numAxes; k++)
-        axes[k] = SDL_JoystickGetAxis(sdlJs, k);
+        axes[k] = Joystick::jsIntToDouble(SDL_JoystickGetAxis(sdlJs, k));
 }             
