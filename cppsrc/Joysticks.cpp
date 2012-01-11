@@ -62,6 +62,15 @@ void Joysticks::grabStates(){
         jsit->second->grabStates();
 }
 
+Joystick & Joysticks::get(const int idx){
+    map<int,Joystick*>::iterator jsit = jsMap.find(idx);
+
+    // joystick already open
+    if (jsit != jsMap.end())
+        return *(jsit->second);
+
+    return open(idx);
+}
 
 Joystick & Joysticks::open(const int idx){
     map<int,Joystick*>::iterator jsit = jsMap.find(idx);
@@ -74,6 +83,18 @@ Joystick & Joysticks::open(const int idx){
     jsMap.insert(std::pair<int,Joystick*>(idx,new Joystick(idx)));
 
     return *(jsMap.find(idx)->second);
+}
+
+void Joysticks::close(const int idx){
+    map<int,Joystick*>::iterator jsit = jsMap.find(idx);
+
+    if (jsit == jsMap.end()){
+        cerr << "can't close joystick " << idx << " because it's not open\n";
+        return;
+    }
+
+    delete jsit->second;
+    jsMap.erase(jsit->first);
 }
 
 Joysticks::~Joysticks(){

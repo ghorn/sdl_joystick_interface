@@ -15,7 +15,9 @@ public:
     Joysticks();
     ~Joysticks();
     int numJs();
-    Joystick & open(int idx);
+    Joystick & get(const int idx);
+    Joystick & open(const int idx);
+    void close(const int idx);
     void handleEvents();
     void grabStates();
 
