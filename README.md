@@ -85,4 +85,4 @@ For some reason (only?) the first struct gotten is bad and random, you should ma
          0
          0
 
-I've tried to repeatedly grab values internally in a loop, but this does not force it to cycle. I suspect the bug is related to SDL events not working properly without having SDLMain.
+I've tried to repeatedly grab values internally (in the wrapper) in a loop, but this does not force it to cycle. I suspect the bug is related to SDL events not working properly without having SDLMain.
